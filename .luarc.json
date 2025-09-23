@@ -1,0 +1,9 @@
+{
+    "diagnostics.globals": [
+        "vim",
+        "create_cmake_snipper"
+    ],
+    "diagnostics.disable": [
+        "undefined-field"
+    ]
+}
