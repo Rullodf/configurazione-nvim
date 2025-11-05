@@ -21,7 +21,7 @@ return {
 				"ts_ls",
 
 				-- Sistemi / compilati
-				"clangd", -- C / C++
+				"clangd",    -- C / C++
 				"rust_analyzer", -- Rust
 
 				-- Altro utile
@@ -60,6 +60,10 @@ return {
 			vim.lsp.enable("jsonls")
 			vim.lsp.enable("eslint")
 			vim.lsp.enable("emmet-lsp")
+			vim.lsp.enable("dockerls")
+			vim.lsp.enable("terraform-ls")
+			vim.lsp.enable("docker_compose_language_service")
+			vim.lsp.enable("asm-lsp")
 
 			--------------------------------------------------------
 			---configurazioni
@@ -71,7 +75,7 @@ return {
 						},
 						workspace = {
 							library = vim.api.nvim_get_runtime_file("", true), -- aggiunge le API di nvim
-							checkThirdParty = false, -- evita richieste noiose
+							checkThirdParty = false,                    -- evita richieste noiose
 						},
 						telemetry = {
 							enable = false,
