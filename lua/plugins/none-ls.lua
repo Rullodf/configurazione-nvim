@@ -11,8 +11,16 @@ return {
 				null_ls.builtins.formatting.stylua,
 				require("none-ls.diagnostics.cpplint"),
 				null_ls.builtins.formatting.prettier.with({
-					disabled_filetypes = { "typescript", "javascript", "typescriptreact", "javascriptreact", "css", "html" },
+					disabled_filetypes = {
+						"typescript",
+						"javascript",
+						"typescriptreact",
+						"javascriptreact",
+						"css",
+						"html",
+					},
 				}),
+				null_ls.builtins.formatting.gdformat,
 			},
 		})
 		vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})

@@ -64,9 +64,15 @@ return {
 			vim.lsp.enable("terraform-ls")
 			vim.lsp.enable("docker_compose_language_service")
 			vim.lsp.enable("asm-lsp")
+			vim.lsp.enable("gdtoolkit")
 
 			--------------------------------------------------------
 			---configurazioni
+			require("lspconfig")["gdscript"].setup({
+				name = "godot",
+				cmd = vim.lsp.rpc.connect("127.0.0.1", 6005),
+			})
+
 			vim.lsp.config("lua_ls", {
 				settings = {
 					Lua = {
@@ -88,12 +94,12 @@ return {
 				capabilities = require("cmp_nvim_lsp").default_capabilities(),
 			})
 			--------------------------------------------------------
-
+			local noice = require("noice.lsp")
 			vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, { desc = "Signature Help" })
 			vim.keymap.set("n", "<leader>of", vim.diagnostic.open_float, { desc = "Open Diagnostic Float" })
 			vim.keymap.set({ "n", "v" }, "<leader>rn", vim.lsp.buf.rename, { desc = "Refactor" })
 			vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover" })
+			vim.keymap.set("n", "K", noice.hover, { desc = "LSP Hover" })
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "Go to Definition" })
 			vim.keymap.set("n", "<leader>lr", "<cmd>LspRestart<CR>", { desc = "Restart LSP" })
 		end,
